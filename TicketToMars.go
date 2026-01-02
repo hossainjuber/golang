@@ -10,17 +10,20 @@ import (
 func main() {
 
 	//fmt.Println("Spaceline Days Trip type Price")
-	fmt.Printf("%-22v %5v %5v %5v\n", "Spaceline", "Days", "Trip type", "Price")
-	fmt.Println("==============================")
+	fmt.Printf("%-22v %5v %12v %10v\n", "Spaceline", "Days", "Trip type", "Price")
+	fmt.Println("=========================================================")
 	for count := 10; count > 0; count-- {
 		var name = getSpaceFlightName()
 		var speed = getSpeed()
 		var days = getDurationInDays(speed)
 		var priceMap = getPriceMap()
-		var tripType = "Round trip"
+		var tripType = getTripType()
 		var price = priceMap[speed]
+		if tripType == "Round Trip" {
+			price = price * 2
+		}
 
-		fmt.Printf("%-20v %5v %5v $%5v\n", name, days, tripType, price)
+		fmt.Printf("%-20v %5v %15v %5v %v\n", name, days, tripType, "$", price)
 	}
 }
 
@@ -48,6 +51,12 @@ func getDurationInDays(speed int) int {
 	var hours = minutes / 60
 	var days = hours / 24
 	return days
+}
+
+func getTripType() string {
+	flightType := [3]string{"One Way", "Round Trip"}
+	idx := rand.Intn(2)
+	return flightType[idx]
 }
 
 func getPriceMap() map[int]int {
