@@ -1,5 +1,4 @@
-// You can edit this code!
-// Click here and start typing.
+
 package main
 
 import (
@@ -9,7 +8,6 @@ import (
 
 func main() {
 
-	//fmt.Println("Spaceline Days Trip type Price")
 	fmt.Printf("%-22v %5v %12v %10v\n", "Spaceline", "Days", "Trip type", "Price")
 	fmt.Println("=========================================================")
 	for count := 10; count > 0; count-- {
@@ -42,8 +40,8 @@ func getSpeed() int {
 	return rand.Intn(max-min+1) + min
 }
 
-// This will determine the duration for the trip to Mars and also the ticket price. Make faster ships more expen-
-// sive, ranging in price from $36 million to $50 million. Double the price for round trips.
+// This will determine the duration for the trip to Mars and also the ticket price. Make faster ships more 
+// expensive, ranging in price from $36 million to $50 million. Double the price for round trips.
 func getDurationInDays(speed int) int {
 	var distance = 62100000
 	var seconds = distance / speed
